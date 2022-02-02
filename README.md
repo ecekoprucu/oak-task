@@ -7,6 +7,7 @@ HOW TO USE?
 * You can't add a task if the task text is empty. 
 * You can add unlimited amount of tasks.
 * The web app is responsive and is able to be used on mobile.
+* TODO: Add custom section
 
 USED TECHNOLOGIES
 

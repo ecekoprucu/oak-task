@@ -1,0 +1,15 @@
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  margin: 1em;
+  border: 1px dashed gray;
+}
+
+.completed,
+.uncompleted {
+  overflow-wrap: anywhere;
+}
+
+.completed {
+  text-decoration: line-through;
+}

@@ -16,11 +16,9 @@ function App() {
   );
 }
 
-
-export default () => {
+const AppWrapper =  () => {
   return (
-    <DataProvider>
-      <App />
-    </DataProvider>
-  );
+    <DataProvider><App /></DataProvider>
+  )
 };
+export default AppWrapper;

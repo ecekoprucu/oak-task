@@ -32,9 +32,9 @@ const CheckList = () => {
 
     useEffect(() => {
         if(isPartComplete.foundation && isPartComplete.discovery && isPartComplete.delivery) {
-            fetch('https://uselessfacts.jsph.pl/random.json').then(response => response.json().then(resp => setFact(resp.text)));
+            fetch('https://api.quotable.io/random').then(res => res.json()).then(data => setFact(data.content));
         }
-    }, [isPartComplete])
+    }, [isPartComplete.foundation, isPartComplete.discovery, isPartComplete.delivery])
     
     const handleSaveTask = () => {
 
@@ -53,7 +53,7 @@ const CheckList = () => {
     }
     return (
         <div>
-          {fact.length > 0 ? <p>{fact}</p> : (<div className="documentBody">
+          {fact?.length > 0 ? <p>{fact}</p> : (<div className="documentBody">
               {
                   Object.keys(data).map((taskData, index) => {
                     return (

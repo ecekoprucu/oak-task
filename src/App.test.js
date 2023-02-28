@@ -3,6 +3,7 @@ import App from './App';
 import {DataProvider} from './context/dataContext';
 
 beforeEach(() => {
+  // eslint-disable-next-line testing-library/no-render-in-setup
   render( <DataProvider><App /></DataProvider>);
 })
 

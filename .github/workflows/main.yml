@@ -33,7 +33,7 @@ jobs:
       uses: codecov/codecov-action@v3.1.1
 
     - name: Linting
-      run: npm lint
+      run: npm run lint
 
     - name: Build
       run: npm run build

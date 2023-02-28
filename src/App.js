@@ -1,9 +1,9 @@
-import './App.css';
-import CheckList from './components/CheckList';
-import {DataProvider} from './context/dataContext';
+import React from "react";
+import "./App.css";
+import CheckList from "./components/CheckList";
+import { DataProvider } from "./context/dataContext";
 
 function App() {
-
   return (
     <div className="App">
       <header className="header">
@@ -16,9 +16,11 @@ function App() {
   );
 }
 
-const AppWrapper =  () => {
+const AppWrapper = () => {
   return (
-    <DataProvider><App /></DataProvider>
-  )
+    <DataProvider>
+      <App />
+    </DataProvider>
+  );
 };
 export default AppWrapper;

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useState, useContext } from "react";
 import DataContext from "../context/dataContext";
 import { FaTrash, FaPen, FaCheck } from "react-icons/fa";

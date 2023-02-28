@@ -1,4 +1,4 @@
-import { useState, useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import CheckItem from "./CheckItem";
 import DataContext from "../context/dataContext";
 import { FaPlus, FaCheck, FaTimes } from "react-icons/fa";

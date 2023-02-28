@@ -1,3 +1,4 @@
+import React from "react";
 import "./App.css";
 import CheckList from "./components/CheckList";
 import { DataProvider } from "./context/dataContext";

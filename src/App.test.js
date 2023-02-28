@@ -1,9 +1,9 @@
+import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import App from "./App";
 import { DataProvider } from "./context/dataContext";
 
 beforeEach(() => {
-  // eslint-disable-next-line testing-library/no-render-in-setup
   render(
     <DataProvider>
       <App />

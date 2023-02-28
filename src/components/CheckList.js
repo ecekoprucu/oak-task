@@ -37,7 +37,6 @@ const CheckList = () => {
     }, [isPartComplete.foundation, isPartComplete.discovery, isPartComplete.delivery])
     
     const handleSaveTask = () => {
-
         if(newTaskInput.text.length === 0) {
             alert('Please write some text');
             return false;

@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/oak-task/static/css/main.52a2f8ca.css",
+    "main.js": "/oak-task/static/js/main.1ecdf4cb.js",
+    "static/js/787.bfeedb77.chunk.js": "/oak-task/static/js/787.bfeedb77.chunk.js",
+    "index.html": "/oak-task/index.html",
+    "main.52a2f8ca.css.map": "/oak-task/static/css/main.52a2f8ca.css.map",
+    "main.1ecdf4cb.js.map": "/oak-task/static/js/main.1ecdf4cb.js.map",
+    "787.bfeedb77.chunk.js.map": "/oak-task/static/js/787.bfeedb77.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.52a2f8ca.css",
+    "static/js/main.1ecdf4cb.js"
+  ]
+}

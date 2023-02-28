@@ -41,6 +41,7 @@ const CheckItem = ({ task, taskParent, completeStatuses }) => {
               type="checkbox"
               disabled={checkDisabled()}
               name="task"
+              data-testid="completeTask-checkbox"
               checked={task.completed}
               onChange={e =>
                 changeTaskStatus(task.id, taskParent, e.target.checked)

@@ -50,7 +50,8 @@ const CheckList = () => {
     ) {
       fetch("https://api.quotable.io/random")
         .then(res => res.json())
-        .then(data => setFact(data.content));
+        .then(data => setFact(data.content))
+        .catch(err => console.log(err));
     }
   }, [
     isPartComplete.foundation,

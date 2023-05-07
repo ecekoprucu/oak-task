@@ -1,14 +1,9 @@
 import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import App from "./App";
-import { DataProvider } from "./context/dataContext";
 
 beforeEach(() => {
-  render(
-    <DataProvider>
-      <App />
-    </DataProvider>,
-  );
+  render(<App />);
 });
 
 test("renders header title", () => {
@@ -55,4 +50,27 @@ test("edits and deletes task correctly", () => {
   fireEvent.click(deleteButton);
 
   expect(screen.queryByText("test234")).not.toBeInTheDocument();
+});
+
+test("completes task correctly", async () => {
+  const addButton = screen.getByTestId("add-task");
+  fireEvent.click(addButton);
+  const taskInput = screen.getByTestId("addTask-input");
+  fireEvent.change(taskInput, { target: { value: "test123" } });
+  fireEvent.change(screen.getByTestId("addTask-select"), {
+    target: { value: "foundation" },
+  });
+  const saveButton = screen.getByTestId("addTask-saveTaskButton");
+  fireEvent.click(saveButton);
+
+  await waitFor(() => {
+    expect(screen.getByTestId("completeTask-checkbox")).toBeInTheDocument();
+    expect(screen.getByTestId("completeTask-checkbox")).not.toBeChecked();
+  });
+
+  fireEvent.click(screen.getByTestId("completeTask-checkbox"));
+
+  await waitFor(() => {
+    expect(screen.getByTestId("completeTask-checkbox")).toBeChecked();
+  });
 });

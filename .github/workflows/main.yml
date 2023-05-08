@@ -2,12 +2,16 @@ name: Oak Task CI/CD
 
 on:
   push:
-    branches: ["master"]
+    branches: [ "master" ]
   pull_request:
-    branches: ["master"]
-
+    branches: [ "master" ]
+env:
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+      
 jobs:
   build:
+
     runs-on: ubuntu-latest
 
     strategy:
@@ -15,24 +19,34 @@ jobs:
         node-version: [14.x, 16.x, 18.x]
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: "npm"
-      - name: Install dependencies
-        run: npm install
+    - name: Checkout repository
+      uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - name: Install dependencies
+      run: npm install
 
-      - name: Run the tests
-        run: npm run test -- --coverage
+    - name: Run the tests
+      run: npm run test -- --coverage
 
-      - name: Codecov
-        uses: codecov/codecov-action@v3.1.1
+    - name: Codecov
+      uses: codecov/codecov-action@v3.1.1
 
-      - name: Linting
-        run: npm run lint
+    - name: Linting
+      run: npm run lint
 
-      - name: Build
-        run: npm run build
+    - name: Build
+      run: npm run build
+    - name: Deploy
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
+      - name: Pull Vercel Environment Information
+        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+      - name: Build Project Artifacts
+        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+      - name: Deploy Project Artifacts to Vercel
+        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
+

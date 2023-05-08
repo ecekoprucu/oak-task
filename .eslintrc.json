@@ -13,5 +13,10 @@
   "plugins": ["react", "prettier", "jest"],
   "rules": {
     "prettier/prettier": ["error"]
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   }
 }
